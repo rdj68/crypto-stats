@@ -34,9 +34,5 @@ build/
 # Coverage files (if using testing tools like Jest)
 coverage/
 
-# Lock files (if you want to avoid lock files in version control)
-package-lock.json
-yarn.lock
-
 # Optional - If using PM2 for process management
 pm2-logs/
