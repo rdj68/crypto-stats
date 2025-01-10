@@ -1,8 +1,9 @@
+import { configDotenv } from 'dotenv';
 import Fastify from 'fastify';
+import connectDB from './config/db.js';
 import hello from './routes/hello.js';
 import logger from './plugin/logger.js';
-import connectDB from './config/db.js';
-import { configDotenv } from 'dotenv';
+import registerJobs from './jobs/index.js';
 
 const fastify = Fastify({
   logger: true,
@@ -13,6 +14,9 @@ configDotenv();
 
 // Connect to database
 connectDB();
+
+// Register jobs
+registerJobs()
 
 // Register plugins
 fastify.register(logger)
