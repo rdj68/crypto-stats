@@ -13,20 +13,24 @@ const fastify = Fastify({
 // Load environment variables
 configDotenv();
 
+// Get the port from environment variables or default to 3000
+const PORT = process.env.PORT || 8080;
+
 // Connect to database
 connectDB();
 
 // Register jobs
-registerJobs()
+registerJobs();
 
 // Register plugins
-fastify.register(logger)
+fastify.register(logger);
 
 // Register routes
-fastify.register(hello)
-fastify.register(cryptoRoutes)
+fastify.register(hello);
+fastify.register(cryptoRoutes);
 
-fastify.listen({ port: 3000 }, (err, address) => {
+// Start the server
+fastify.listen({ port: PORT, host: '0.0.0.0' }, (err, address) => {
   if (err) {
     fastify.log.error(err);
     process.exit(1);

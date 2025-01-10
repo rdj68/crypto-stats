@@ -1,20 +1,22 @@
 # Use the official Node.js runtime as a parent image
-FROM node:16
+FROM node:21.7.3
 
 # Set the working directory inside the container
 WORKDIR /app
 
-# Copy the current directory contents into the container at /app
-COPY . /app
+# Copy the package.json and package-lock.json files first for caching layer
+COPY package*.json /app/
 
 # Install dependencies
-RUN npm install --production
+RUN npm install
 
-# Install PM2 globally
-RUN npm install pm2 -g
+# Copy the rest of your application files
+COPY . /app
 
-# Expose the port your Fastify app will listen on
-EXPOSE 3000
+# Expose the port from the environment (optional, for clarity)
+ARG PORT=8080
+ENV PORT=${PORT}
+EXPOSE ${PORT}
 
-# Use PM2 to start your app
-CMD ["pm2-runtime", "start", "app.js"]
+# Start the app
+CMD ["node", "app.js"]
