@@ -1,6 +1,7 @@
 import Fastify from 'fastify';
 import hello from './routes/hello.js';
 import logger from './plugin/logger.js';
+import connectDB from './config/db.js';
 import { configDotenv } from 'dotenv';
 
 const fastify = Fastify({
@@ -9,6 +10,9 @@ const fastify = Fastify({
 
 // Load environment variables
 configDotenv();
+
+// Connect to database
+connectDB();
 
 // Register plugins
 fastify.register(logger)
