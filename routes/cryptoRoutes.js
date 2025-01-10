@@ -1,5 +1,5 @@
-// Import controllers for respective endpoints
-import { getCryptoStats } from '../controllers/statsController.js'
+import { getCryptoStats } from '../controllers/statsController.js';
+import { getCryptoDeviation } from '../controllers/deviationController.js';
 
 /**
  * Defines routes related to cryptocurrency operations.
@@ -43,6 +43,42 @@ async function cryptoRoutes(fastify, options) {
       },
     },
     handler: getCryptoStats,
+  });
+
+  // Route to calculate the standard deviation of cryptocurrency prices
+  fastify.route({
+    method: 'GET',
+    url: '/deviation',
+    schema: {
+      querystring: {
+        type: 'object',
+        required: ['coin'],
+        properties: {
+          coin: { type: 'string', enum: ['bitcoin', 'matic-network', 'ethereum'] },
+        },
+      },
+      response: {
+        200: {
+          type: 'object',
+          properties: {
+            deviation: { type: 'number' },
+          },
+        },
+        400: {
+          type: 'object',
+          properties: {
+            error: { type: 'string' },
+          },
+        },
+        404: {
+          type: 'object',
+          properties: {
+            error: { type: 'string' },
+          },
+        },
+      },
+    },
+    handler: getCryptoDeviation,
   });
 }
 
