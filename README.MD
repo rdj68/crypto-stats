@@ -14,7 +14,7 @@ This project is a server-side application built using **Node.js** and **Fastify*
 - **Fastify** for the server framework
 - **MongoDB** for database storage
 - **CoinGecko API** for cryptocurrency data
-- **node-schedule** for background job scheduling
+- **node-cron** for background job scheduling
 
 ---
 
@@ -22,7 +22,7 @@ This project is a server-side application built using **Node.js** and **Fastify*
 
 ### Prerequisites
 
-- Node.js installed (v14+ recommended)
+- Node.js installed (v20+ recommended for fastify support)
 - MongoDB instance running locally or in the cloud
 
 ### Installation
