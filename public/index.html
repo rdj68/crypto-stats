@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crypto Stats API</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Font Awesome for Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f7fc;
+      color: #333;
+    }
+    header {
+      background-color: #4caf50;
+      color: white;
+      text-align: center;
+      padding: 1rem 0; /* Reduced header height */
+      font-family: 'Poppins', sans-serif;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin: 0;
+    }
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1.5rem;
+      background: white;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+    h2, h3 {
+      font-family: 'Poppins', sans-serif;
+      color: #4caf50;
+    }
+    p {
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+    a {
+      color: #4caf50;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .endpoint {
+      margin: 1.5rem 0;
+    }
+    footer {
+      text-align: center;
+      padding: 1.2rem;
+      margin-top: 2rem;
+      background-color: #f1f1f1;
+      font-size: 0.9rem;
+      color: #666;
+      font-family: 'Roboto', sans-serif;
+    }
+    footer a {
+      color: #4caf50;
+      margin: 0 0.5rem;
+      font-size: 1.2rem;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    footer .fab {
+      margin-right: 8px; /* Space between icon and text */
+    }
+    code {
+      background-color: #f0f0f0;
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Welcome to the Crypto Stats API</h1>
+  </header>
+  <main>
+    <h2>About</h2>
+    <p>This API provides cryptocurrency statistics and price deviation calculations. Below are the available endpoints:</p>
+
+    <h2>Endpoints</h2>
+    <div class="endpoint">
+      <h3>1. Get Cryptocurrency Stats</h3>
+      <p>
+        <strong>Endpoint:</strong> <code>/stats</code><br>
+        <strong>Query Parameter:</strong> <code>coin</code> (required, e.g., "bitcoin", "ethereum", "matic-network")<br>
+        <strong>Example:</strong>
+        <a href="/stats?coin=bitcoin" target="_blank">/stats?coin=bitcoin</a>
+      </p>
+    </div>
+    <div class="endpoint">
+      <h3>2. Get Price Deviation</h3>
+      <p>
+        <strong>Endpoint:</strong> <code>/deviation</code><br>
+        <strong>Query Parameter:</strong> <code>coin</code> (required, e.g., "bitcoin", "ethereum", "matic-network")<br>
+        <strong>Example:</strong>
+        <a href="/deviation?coin=bitcoin" target="_blank">/deviation?coin=bitcoin</a>
+      </p>
+    </div>
+  </main>
+  <footer>
+    <p>Connect with me:</p>
+    <a href="https://github.com/rdj68" target="_blank">
+      <i class="fab fa-github"></i> GitHub
+    </a>
+    <a href="https://leetcode.com/u/Rajivsingh68/" target="_blank">
+      <i class="fab fa-leetcode"></i> Leetcode
+    </a>
+    <a href="https://www.linkedin.com/in/rajeevsingh0519/" target="_blank">
+      <i class="fab fa-linkedin"></i> LinkedIn
+    </a>
+    <a href="https://rajeev-portfolio-eight.vercel.app/" target="_blank">
+      <i class="fas fa-briefcase"></i> Portfolio
+    </a>
+  </footer>
+</body>
+</html>
