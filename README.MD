@@ -18,6 +18,15 @@ This project is a server-side application built using **Node.js** and **Fastify*
 
 ---
 
+## Deployment Methodology
+
+The project is deployed using the following tools and methodologies:
+
+- **Google Cloud Build**: Used for setting up a CI/CD pipeline to automate the deployment process.
+- **Google Cloud Run**: Hosting the application with a minimum of 1 instance to ensure the background job remains active.
+
+**Deployment Link:** [Crypto Tracker](https://crypto-577420379157.us-central1.run.app/)
+
 ## Setup Instructions
 
 ### Prerequisites
