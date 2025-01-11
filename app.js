@@ -2,10 +2,12 @@ import { configDotenv } from 'dotenv';
 import Fastify from 'fastify';
 import connectDB from './config/db.js';
 import cryptoRoutes from './routes/cryptoRoutes.js';
-import hello from './routes/hello.js';
+import indexRoute from './routes/index.js';
 import logger from './plugin/logger.js';
 import registerJobs from './jobs/index.js';
-import fastifyCors from '@fastify/cors'; // Import the CORS plugin
+import fastifyCors from '@fastify/cors';
+import fastifyStatic from '@fastify/static';
+import { join } from 'path';
 
 const fastify = Fastify({
   logger: true,
@@ -30,8 +32,13 @@ fastify.register(fastifyCors, {
   methods: ['GET', 'POST'],
 });
 
+// Serve static files from the "public" directory
+fastify.register(fastifyStatic, {
+  root: join(process.cwd(), 'public'),
+});
+
 // Register routes
-fastify.register(hello);
+fastify.register(indexRoute);
 fastify.register(cryptoRoutes);
 
 // Start the server
